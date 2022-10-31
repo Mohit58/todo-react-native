@@ -8,7 +8,7 @@ const Task = (props) => {
             <View style={styles.square}></View>
             <Text style={styles.itemText}>{props.text}</Text>
         </View>
-        <View style={styles.circle}></View>
+        <View><Text onPress={props.deleteTask} style={styles.circle}>X</Text></View>
     </View>
   )
 }
@@ -40,11 +40,7 @@ const styles = StyleSheet.create({
         maxWidth: '80%',
     },
     circle:{
-        width: 12,
-        height: 12,
-        borderColor: '#55BCF6',
-        borderWidth: 2,
-        borderRadius: 5,
+        color: 'red',
     },
 });
 

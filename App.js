@@ -20,26 +20,20 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-
-      {/* Today's Tasks */}
       <View style={styles.tasksWrapper}>
         <Text style={styles.sectionTitle}>Today's tasks</Text>
         <View style={styles.items}>
-          {/* This is where the tasks will go! */}
-
           {
             taskItems.map((item, index) => {
               return (
-                <TouchableOpacity key={index} onPress={() => completeTask(index)}>
-                  <Task text={item} />
+                <TouchableOpacity key={index} >
+                  <Task text={item} deleteTask={() => completeTask(index)} />
                 </TouchableOpacity>
               )
             })
           }
         </View>
       </View>
-
-      {/* Write a task */}
       <KeyboardAvoidingView
       behavior={Platform.OS ? 'padding' : 'height'}
       style={styles.writeTaskWrapper}>
@@ -98,5 +92,7 @@ addWrapper: {
   borderColor: '#c0c0c0',
   borderWidth: 1,
 },
-addText: {},
+addText: {
+  fontSize: 30,
+},
 });
